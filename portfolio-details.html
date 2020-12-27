@@ -35,7 +35,7 @@
   ======================================================== -->
 </head>
 
-<body>
+<body onload="getPortfolio()">
 
   <!-- ======= Mobile nav toggle button ======= -->
   <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
@@ -93,40 +93,26 @@
       <div class="container details-portfolio">
 
         <div class="section-title">
-          <div class="list-technology">
-            <a href="https://www.google.com/search?q=react" target="_blank"><h5 class="tag-element">React Native</h5></a>
-            <a href="https://www.google.com/search?q=react" target="_blank"><h5 class="tag-element">Firebase</h5></a>
+          <div id="projectTags" class="list-technology">
           </div>
           
-          <h2>PicMe Usuário</h2>
+          <h2 id="projectTitle">Nome projeto</h2>
         </div>
 
-        <p>O PicMe Fotógrafo foi um aplicativo desenvolvido em grupo (composto por quatro integrantes) para o Trabalho de Conclusão de Curso (TCC) no ano de 2019 do curso de Sistemas de Informação pela PUC-Campinas. O desenvolvimento durou 1 ano letivo, onde decidimos utilizar tecnologias em alta no mercado na época, como o React Native e o Firebase.</p>
-        <p>A ideia do aplicativo consiste em dois aplicativos que se complementam no processo. Este em questão, é o aplicativo do usuário, que pode encontrar fotógrafos online próximos a ele dentro de um raio pré-definido, e então solicitar o serviço que deverá ocorrer nos próximos minutos. A proposta aqui é que o aplicativo seja utilizado em locais turísticos, onde os fotógrafos se posicionariam estratégicamente para atender as solicitações.</p>
+        <div id="projectDescription">
+        </div>
 
         <h3 class="subtitle">Features</h3>
 
         <div class="col-lg-12">
-          <ul>
-            <li><i class="icofont-rounded-right"></i>Utilização de localização via GPS para promover o encontro de clientes e fotógrafos</li>
-            <li><i class="icofont-rounded-right"></i>Solicitar um novo fotógrafo selecionando dispositivo e quantidade de fotos</li>
-            <li><i class="icofont-rounded-right"></i>Visualizar histórico de sessões realizadas</li>
-            <li><i class="icofont-rounded-right"></i>Adicionar saldo na carteira</li>
+          <ul id="projectFeatureList">
           </ul>
         </div>
 
         <h3 class="subtitle">Screenshots</h3>
 
         <div class="row">
-          <div class="col-lg-12">
-            <img src="assets/img/portfolio/picme-user/1602670059625.png" class="screenshot-template">
-            <img src="assets/img/portfolio/picme-user/1602670066352.png" class="screenshot-template">
-            <img src="assets/img/portfolio/picme-user/1602670074134.png" class="screenshot-template">
-            <img src="assets/img/portfolio/picme-user/1602670079079.png" class="screenshot-template">
-            <img src="assets/img/portfolio/picme-user/1602670084004.png" class="screenshot-template">
-            <img src="assets/img/portfolio/picme-user/1602671498277.png" class="screenshot-template">
-            <img src="assets/img/portfolio/picme-user/1602671522837.png" class="screenshot-template">
-            <img src="assets/img/portfolio/picme-user/1602671527663.png" class="screenshot-template">
+          <div id="projectImageList" class="col-lg-12">
           </div>
         </div>
       </div>
@@ -167,6 +153,8 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script src="assets/js/portfolio.js"></script>
 
 </body>
 
