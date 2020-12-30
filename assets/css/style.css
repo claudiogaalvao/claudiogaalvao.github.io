@@ -555,7 +555,7 @@ section {
   z-index: 2;
   opacity: 0;
 }
-
+/*
 .portfolio .portfolio-wrap .portfolio-links {
   opacity: 1;
   left: 0;
@@ -584,7 +584,7 @@ section {
 .portfolio .portfolio-wrap .portfolio-links a + a {
   border-left: 1px solid #37b3ed;
 }
-
+*/
 .portfolio .portfolio-wrap:hover::before {
   top: 0;
   left: 0;
@@ -593,9 +593,58 @@ section {
   opacity: 1;
 }
 
-.portfolio .portfolio-wrap:hover .portfolio-links {
+.portfolio .portfolio-wrap:hover .portfolio-resume {
   opacity: 1;
   bottom: 0;
+}
+
+.portfolio-resume {
+  position: absolute;
+  top: 0;
+  margin: 40px 30px;
+  opacity: 0;
+  z-index: 3;
+  transition: all ease-in-out 0.3s;
+}
+
+.portfolio-resume > h3 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  font-family: "Open Sans", sans-serif;
+  color: #272829;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.portfolio-resume > p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  font-family: "Open Sans", sans-serif;
+  color: #272829;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.portfolio-resume > a {
+  border: 1px solid #149ddd;
+  font-family: "Open Sans", sans-serif;
+  color: #149ddd;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding: 4px 8px;
+  transition: 0.5s;
+}
+
+.portfolio-resume > a:hover {
+  background: #149ddd;
+  color: white;
 }
 
 /*--------------------------------------------------------------
