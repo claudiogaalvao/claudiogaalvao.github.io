@@ -601,10 +601,11 @@ section {
 .portfolio-resume {
   position: absolute;
   top: 0;
-  margin: 40px 30px;
+  margin: 30px;
   opacity: 0;
   z-index: 3;
   transition: all ease-in-out 0.3s;
+  width: -webkit-fill-available;
 }
 
 .portfolio-resume > h3 {
@@ -630,6 +631,31 @@ section {
   font-size: 13px;
   font-weight: 400;
   line-height: 1.5;
+}
+
+.portfolio-resume > ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.portfolio-resume > ul > li {
+  text-transform: lowercase;
+  font-size: 13px;
+  font-family: "Open Sans", sans-serif;
+  border: 1px solid #FF8C00;
+  color: #FF8C00;
+  border-radius: 20px;
+  padding: 0px 8px;
+  margin-right: 5px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.portfolio-resume > ul > li:hover {
+  background: #FF8C00;
+  color: white;
 }
 
 .portfolio-resume > a {

@@ -29,19 +29,66 @@ const portfolio = [
     {
         id: 002,
         title: "Outro projeto",
-        description: [],
+        description: ['Alguma descrição aqui...'],
         features: [],
         images: [],
         tags: []
     },
 ];
 
-function getPortfolio() {
+function buildPortfolioList() {
+    const porfolioList = document.getElementById('portfolio-list');
+
+    portfolio.forEach((item) => {
+        const container = document.createElement('div');
+        container.setAttribute('class', 'col-lg-4 col-md-6 portfolio-item filter-app');
+        
+        const content = document.createElement('div');
+        content.setAttribute('class', 'portfolio-wrap');
+
+        const image = document.createElement('img');
+        image.setAttribute('src', 'assets/img/portfolio/portfolio-1.jpg')
+        image.setAttribute('class', 'img-fluid');
+
+        const resumeContent = document.createElement('div');
+        resumeContent.setAttribute('class', 'portfolio-resume');
+
+        const projectTitle = document.createElement('h3');
+        projectTitle.innerHTML = item.title;
+
+        const projectDescription = document.createElement('p');
+        projectDescription.innerHTML = item.description[0];
+        
+        const projectTagList = document.createElement('ul');
+        item.tags.forEach((tag) => {
+            const projectTag = document.createElement('li');
+            projectTag.innerHTML = tag;
+            projectTagList.appendChild(projectTag);
+        });
+
+        const projectLink = document.createElement('a')
+        projectLink.setAttribute('href', `portfolio-details.html?id=${item.id}`)
+        projectLink.innerHTML = 'Ver detalhes';
+
+        resumeContent.appendChild(projectTitle);
+        resumeContent.appendChild(projectDescription);
+        resumeContent.appendChild(projectTagList);
+        resumeContent.appendChild(projectLink);
+
+        content.appendChild(image);
+        content.appendChild(resumeContent);
+
+        container.appendChild(content);
+
+        porfolioList.appendChild(container);      
+    });
+
+}
+
+function buildPortfolioPage() {
     var url_string = window.location.href;
     var url = new URL(url_string);
     var idProject = url.searchParams.get("id");
-
-    console.log(portfolio);
 
     const project = portfolio.find(proj => proj.id = idProject);
 

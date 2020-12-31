@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Claudio Galvão - Desenvolvedor Mobile & Web</title>
+  <title>Claudio Galvão - Mobile & Web Developer</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -35,7 +35,7 @@
   ======================================================== -->
 </head>
 
-<body>
+<body onload="buildPortfolioList()">
 
   <!-- ======= Mobile nav toggle button ======= -->
   <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
@@ -59,7 +59,7 @@
         <ul>
           <li class="active"><a href="index.html"><i class="bx bx-home"></i> <span>Home</span></a></li>
           <li><a href="#about"><i class="bx bx-user"></i> <span>Sobre</span></a></li>
-          <li><a href="#resume"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+          <li><a href="#resume"><i class="bx bx-file-blank"></i> <span>Currículo</span></a></li>
           <li><a href="#portfolio"><i class="bx bx-book-content"></i> Portfolio</a></li>
           <!-- <li><a href="#services"><i class="bx bx-server"></i> Serviços</a></li> -->
           <li><a href="#contact"><i class="bx bx-envelope"></i> Contato</a></li>
@@ -326,107 +326,10 @@
           </div>
         </div>
 
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+        <div id="portfolio-list" class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-resume">
-                <h3>Título projeto</h3>
-                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-                <a href="portfolio-details.html?id=001" title="More Details">Ver detalhes</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-resume">
-                <h3>Título projeto</h3>
-                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-                <a href="portfolio-details.html?id=001" title="More Details">Ver detalhes</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-              <div class="portfolio-resume">
-                <h3>Título projeto</h3>
-                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-                <a href="portfolio-details.html?id=001" title="More Details">Ver detalhes</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-              <div class="portfolio-resume">
-                <h3>Título projeto</h3>
-                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-                <a href="portfolio-details.html?id=001" title="More Details">Ver detalhes</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-              <div class="portfolio-resume">
-                <h3>Título projeto</h3>
-                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-                <a href="portfolio-details.html?id=001" title="More Details">Ver detalhes</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-              <div class="portfolio-resume">
-                <h3>Título projeto</h3>
-                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-                <a href="portfolio-details.html?id=001" title="More Details">Ver detalhes</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-              <div class="portfolio-resume">
-                <h3>Título projeto</h3>
-                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-                <a href="portfolio-details.html?id=001" title="More Details">Ver detalhes</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-              <div class="portfolio-resume">
-                <h3>Título projeto</h3>
-                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-                <a href="portfolio-details.html?id=001" title="More Details">Ver detalhes</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-              <div class="portfolio-resume">
-                <h3>Título projeto</h3>
-                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-                <a href="portfolio-details.html?id=001" title="More Details">Ver detalhes</a>
-              </div>
-            </div>
-          </div>
-
+          <!-- Lista de Portfólio será renderizada aqui -->
+          
         </div>
 
       </div>
@@ -494,7 +397,7 @@
               Logo no inicio que o Cláudio entrou na equipe de desenvolvimento da Pró-Reitoria de Pesquisa da Unicamp pude perceber o quão esforçado e dedicado ele é! Um rapaz educado e cheio de vontade de trabalhar e dar o seu melhor. Sem dúvida um ótimo profissional!
               <i class="bx bxs-quote-alt-right quote-icon-right"></i>
             </p>
-            <img src="https://media-exp1.licdn.com/dms/image/C4D03AQEsslkAca77Pw/profile-displayphoto-shrink_100_100/0?e=1608163200&v=beta&t=Wumkk409k-QhS1nVbqYHJdMvPEN7ghtKlFKd1lB7jYY" class="testimonial-img" alt="">
+            <img src="#" class="testimonial-img" alt="">
             <h3>Tatiane Franklin</h3>
             <h4>Especialista de DEX</h4>
           </div>
@@ -505,7 +408,7 @@
               Conheci o Cláudio na IBM, fui designado a ensina-lo RPA, sempre demonstrou muito interesse, humildade e responsabilidade com aquilo que lhe era designado, e uma curva de aprendizagem baixíssima. Tenho extrema satisfação em vê-lo crescer na área de RPA, desejo tudo de bom. Grande abraço!
               <i class="bx bxs-quote-alt-right quote-icon-right"></i>
             </p>
-            <img src="https://media-exp1.licdn.com/dms/image/C5603AQEhqYTFWjmNxA/profile-displayphoto-shrink_100_100/0?e=1608163200&v=beta&t=hoT3VIKE3tuTRX6nPLHrD0rEH8YWj6hXszHDDQH5Szg" class="testimonial-img" alt="">
+            <img src="#" class="testimonial-img" alt="">
             <h3>Arthur Silva</h3>
             <h4>Software Engineer</h4>
           </div>
@@ -516,7 +419,7 @@
               Trabalhei com o Claudio no projeto de automação de processos RPA para o banco Bradesco. Claudio possui bastante conhecimento técnico, adotando as melhores práticas no desenvolvimento de aplicações/sistemas. Além das habilidades técnicas, demonstrou organização e espirito colaborativo.
               <i class="bx bxs-quote-alt-right quote-icon-right"></i>
             </p>
-            <img src="https://media-exp1.licdn.com/dms/image/C4D03AQHZuEfyc3QtOw/profile-displayphoto-shrink_100_100/0?e=1608163200&v=beta&t=Fs2xg7I2XScOyrZYTCqare-ANESZrIXnZgO32fm_M7o" class="testimonial-img" alt="">
+            <img src="#" class="testimonial-img" alt="">
             <h3>Rafael Mendes</h3>
             <h4>RPA Lead</h4>
           </div>
@@ -527,7 +430,7 @@
               Excelente profissional, pró ativo, tem um olhar critico para problemas e apresenta soluções de forma coerente. Facilidade em aprender com os novos desafios propostos, elevando a confiança em lhe entregar novos desafios.
               <i class="bx bxs-quote-alt-right quote-icon-right"></i>
             </p>
-            <img src="https://media-exp1.licdn.com/dms/image/C4E03AQEUNOqy_uKFbQ/profile-displayphoto-shrink_100_100/0?e=1608163200&v=beta&t=IwK2vaDzujASZgnrScTGoogFEIHHCbI7EFJ6aBLESm8" class="testimonial-img" alt="">
+            <img src="#" class="testimonial-img" alt="">
             <h3>Rodrigo Mazoca</h3>
             <h4>RPA Developer</h4>
           </div>
@@ -538,7 +441,7 @@
               When I moved to Everis, I needed an RPA Developer with knowledge on the Web, and I received excellent professional feedback about him, and he came to join Everis, but wanted the fate that he had the opportunity to work as a Mobile Developer, he has a sharp mind, fast and super practical logic ration, adopting good development practices.
               <i class="bx bxs-quote-alt-right quote-icon-right"></i>
             </p>
-            <img src="https://media-exp1.licdn.com/dms/image/C4D03AQEnjtZZ6PYvfA/profile-displayphoto-shrink_100_100/0?e=1608163200&v=beta&t=DzPQ8JpBt7VpoG8tjV8e3eycJXTFGretKiJY1-4V4NE" class="testimonial-img" alt="">
+            <img src="#" class="testimonial-img" alt="">
             <h3>Rodrigo Altafin</h3>
             <h4>RPA Lead Architect</h4>
           </div>
@@ -657,6 +560,8 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script src="assets/js/script.js"></script>
 
 </body>
 
