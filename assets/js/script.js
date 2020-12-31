@@ -6,14 +6,14 @@
 */
 const portfolio = [
     {
-        id: 001,
+        id: '001',
         title: "PicMe Usuário",
         description: [
-            "O PicMe Fotógrafo foi um aplicativo desenvolvido em grupo (composto por quatro integrantes) para o Trabalho de Conclusão de Curso (TCC) no ano de 2019 do curso de Sistemas de Informação pela PUC-Campinas. O desenvolvimento durou 1 ano letivo, onde decidimos utilizar tecnologias em alta no mercado na época, como o React Native e o Firebase.",
+            "O PicMe Usuário foi um aplicativo desenvolvido em grupo (composto por quatro integrantes) para o Trabalho de Conclusão de Curso (TCC) no ano de 2019 do curso de Sistemas de Informação pela PUC-Campinas. O desenvolvimento durou 1 ano letivo, onde decidimos utilizar tecnologias em alta no mercado na época, como o React Native e o Firebase.",
             "A ideia do aplicativo consiste em dois aplicativos que se complementam no processo. Este em questão, é o aplicativo do usuário, que pode encontrar fotógrafos online próximos a ele dentro de um raio pré-definido, e então solicitar o serviço que deverá ocorrer nos próximos minutos. A proposta aqui é que o aplicativo seja utilizado em locais turísticos, onde os fotógrafos se posicionariam estratégicamente para atender as solicitações."
         ],
         features: [
-            "Utilização de localização via GPS para promover o encontro de clientes e fotógrafos",
+            "Utilização de localização via GPS para promover o encontro de cliente e fotógrafos",
             "Solicitar um novo fotógrafo selecionando dispositivo e quantidade de fotos",
             "Visualizar histórico de sessões realizadas",
             "Adicionar saldo na carteira",
@@ -29,12 +29,28 @@ const portfolio = [
         tags: ["React Native", "Redux", "Firebase"],
     },
     {
-        id: 002,
-        title: "Outro projeto",
+        id: '002',
+        title: "PicMe Fotógrafo",
         description: ['Alguma descrição aqui...'],
-        features: [],
-        images: [],
-        tags: []
+        features: [
+            "Utilização de localização via GPS para promover o encontro de clientes e fotógrafo",
+            "Gerenciar fotos do perfil para portfólio",
+            "Realizar o envio das fotos da sessão",
+            "Visualizar histórico de sessões concluídas",
+            "Gerenciar equipamentos",
+            "Aceitar, iniciar e finalizar sessão",
+            "Acompanhar ganhos",
+        ],
+        images: [
+            "assets/img/portfolio/002/1609443411937.png", "assets/img/portfolio/002/1609443421674.png", 
+            "assets/img/portfolio/002/1609443427406.png", "assets/img/portfolio/002/1609443433973.png", 
+            "assets/img/portfolio/002/1609443439201.png", "assets/img/portfolio/002/1609443449912.png", 
+            "assets/img/portfolio/002/1609443457170.png", "assets/img/portfolio/002/1609443463118.png",
+            "assets/img/portfolio/002/1609443468368.png", "assets/img/portfolio/002/1609444016676.png", 
+            "assets/img/portfolio/002/1609444032012.png", "assets/img/portfolio/002/1609444040680.png", 
+            "assets/img/portfolio/002/1609444052853.png"
+        ],
+        tags: ["React Native", "Redux", "Firebase"]
     },
 ];
 
@@ -48,7 +64,7 @@ function buildPortfolioList() {
         const content = document.createElement('div');
         content.setAttribute('class', 'portfolio-wrap');
 
-        const srcImage = `assets/img/portfolio/00${item.id}/main-photo.png`;
+        const srcImage = `assets/img/portfolio/${item.id}/main-photo.png`;
         const image = document.createElement('img');
         image.setAttribute('src', srcImage);
         image.setAttribute('class', 'img-fluid');
@@ -93,52 +109,54 @@ function buildPortfolioPage() {
     var url = new URL(url_string);
     var idProject = url.searchParams.get("id");
 
-    const project = portfolio.find(proj => proj.id = idProject);
-
-    const projectTags = document.getElementById("projectTags");
-    for(let i = 0; i < project.tags.length; i++) {
-        const newTag = document.createElement("a");
-        const newContent = document.createElement("h5");
-        const tagUrl = `https://www.google.com/search?q=${project.tags[i]}`;
-        newTag.setAttribute("href", tagUrl);
-        newTag.setAttribute("target", "_blank");
-        const content = document.createTextNode(project.tags[i]);
-        newContent.setAttribute("class", "tag-element");
-        newContent.appendChild(content);
-        newTag.appendChild(newContent);
-        projectTags.appendChild(newTag);
-    }
-
-    const projectTitle = document.getElementById("projectTitle");
-    projectTitle.innerHTML = project.title;
-
-    const projectDescription = document.getElementById("projectDescription");
-    for(let i = 0; i < project.description.length; i++) {
-        const newParagraph = document.createElement("p");
-        const content = document.createTextNode(project.description[i]);
-        newParagraph.appendChild(content);
-        projectDescription.appendChild(newParagraph);
-    }
-
-    const projectFeatures = document.getElementById("projectFeatureList");
-    for(let i = 0; i < project.features.length; i++) {
-        const newItemList = document.createElement("li");
-        const icon = document.createElement("i");
-        icon.setAttribute("class", "icofont-rounded-right");
-
-        const content = document.createTextNode(project.features[i]);
-
-        newItemList.appendChild(icon);
-        newItemList.appendChild(content);
-
-        projectFeatures.appendChild(newItemList);
-    }
-
-    const projectImageList = document.getElementById("projectImageList");
-    for(let i = 0; i < project.images.length; i++) {
-        const newImage = document.createElement("img");
-        newImage.setAttribute("src", project.images[i]);
-        newImage.setAttribute("class", "screenshot-template");
-        projectImageList.appendChild(newImage);
-    }
+    portfolio.forEach((project) => {
+        if(project.id === idProject) {
+            const projectTags = document.getElementById("projectTags");
+            for(let i = 0; i < project.tags.length; i++) {
+                const newTag = document.createElement("a");
+                const newContent = document.createElement("h5");
+                const tagUrl = `https://www.google.com/search?q=${project.tags[i]}`;
+                newTag.setAttribute("href", tagUrl);
+                newTag.setAttribute("target", "_blank");
+                const content = document.createTextNode(project.tags[i]);
+                newContent.setAttribute("class", "tag-element");
+                newContent.appendChild(content);
+                newTag.appendChild(newContent);
+                projectTags.appendChild(newTag);
+            }
+        
+            const projectTitle = document.getElementById("projectTitle");
+            projectTitle.innerHTML = project.title;
+        
+            const projectDescription = document.getElementById("projectDescription");
+            for(let i = 0; i < project.description.length; i++) {
+                const newParagraph = document.createElement("p");
+                const content = document.createTextNode(project.description[i]);
+                newParagraph.appendChild(content);
+                projectDescription.appendChild(newParagraph);
+            }
+        
+            const projectFeatures = document.getElementById("projectFeatureList");
+            for(let i = 0; i < project.features.length; i++) {
+                const newItemList = document.createElement("li");
+                const icon = document.createElement("i");
+                icon.setAttribute("class", "icofont-rounded-right");
+        
+                const content = document.createTextNode(project.features[i]);
+        
+                newItemList.appendChild(icon);
+                newItemList.appendChild(content);
+        
+                projectFeatures.appendChild(newItemList);
+            }
+        
+            const projectImageList = document.getElementById("projectImageList");
+            for(let i = 0; i < project.images.length; i++) {
+                const newImage = document.createElement("img");
+                newImage.setAttribute("src", project.images[i]);
+                newImage.setAttribute("class", "screenshot-template");
+                projectImageList.appendChild(newImage);
+            }
+        }
+    });
 };
