@@ -22,7 +22,9 @@ const portfolio = [
             "assets/img/portfolio/001/1602670059625.png", "assets/img/portfolio/001/1602670066352.png", 
             "assets/img/portfolio/001/1602670074134.png", "assets/img/portfolio/001/1602670079079.png", 
             "assets/img/portfolio/001/1602670084004.png", "assets/img/portfolio/001/1602671498277.png", 
-            "assets/img/portfolio/001/1602671522837.png", "assets/img/portfolio/001/1602671527663.png"
+            "assets/img/portfolio/001/1602671522837.png", "assets/img/portfolio/001/1602671527663.png",
+            "assets/img/portfolio/001/1609427335475.png", "assets/img/portfolio/001/1609427353928.png", 
+            "assets/img/portfolio/001/1609427371928.png"
         ],
         tags: ["React Native", "Redux", "Firebase"],
     },
@@ -46,8 +48,9 @@ function buildPortfolioList() {
         const content = document.createElement('div');
         content.setAttribute('class', 'portfolio-wrap');
 
+        const srcImage = `assets/img/portfolio/00${item.id}/main-photo.png`;
         const image = document.createElement('img');
-        image.setAttribute('src', 'assets/img/portfolio/portfolio-1.jpg')
+        image.setAttribute('src', srcImage);
         image.setAttribute('class', 'img-fluid');
 
         const resumeContent = document.createElement('div');
