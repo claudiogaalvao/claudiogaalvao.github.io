@@ -73,6 +73,39 @@ const portfolio = [
         tags: ["React", "Redux", "Firebase"],
         filterType: 'web',
     },
+    {
+        id: '004',
+        title: "App Agência de Viagens",
+        description: ['Alguma descrição aqui...'],
+        features: [
+            "Listagem de destinos disponíveis",
+            "Visualizar detalhes do destino",
+            "Realizar a compra para o destino selecionado",
+        ],
+        images: [
+            "assets/img/portfolio/004/1609600393522.png", "assets/img/portfolio/004/1609600398695.png", 
+            "assets/img/portfolio/004/1609600404230.png", "assets/img/portfolio/004/1609600408609.png",
+        ],
+        tags: ["Android", "Java", "RecyclerView"],
+        filterType: 'app',
+    },
+    {
+        id: '005',
+        title: "Gerenciador de Finanças",
+        description: ['Alguma descrição aqui...'],
+        features: [
+            "Visualizar histórico de receitas, despesas e saldo atual",
+            "Adicionar uma nova receita",
+            "Adicionar uma nova despesa",
+            "Remover uma transação"
+        ],
+        images: [
+            "assets/img/portfolio/005/1609600413808.png", "assets/img/portfolio/005/1609600418484.png", 
+            "assets/img/portfolio/005/1609600422463.png", "assets/img/portfolio/005/1609600426546.png",
+        ],
+        tags: ["Android", "Kotlin"],
+        filterType: 'app',
+    },
 ];
 
 function buildPortfolioList() {
