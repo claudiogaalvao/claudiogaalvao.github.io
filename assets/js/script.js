@@ -27,6 +27,7 @@ const portfolio = [
             "assets/img/portfolio/001/1609427371928.png"
         ],
         tags: ["React Native", "Redux", "Firebase"],
+        filterType: 'app',
     },
     {
         id: '002',
@@ -50,7 +51,27 @@ const portfolio = [
             "assets/img/portfolio/002/1609444032012.png", "assets/img/portfolio/002/1609444040680.png", 
             "assets/img/portfolio/002/1609444052853.png"
         ],
-        tags: ["React Native", "Redux", "Firebase"]
+        tags: ["React Native", "Redux", "Firebase"],
+        filterType: 'app',
+    },
+    {
+        id: '003',
+        title: "PicMe Admin",
+        description: ['Alguma descrição aqui...'],
+        features: [
+            "Aprovar/Reprovar novos cadastros de fotógrafos na plataforma",
+            "Gerenciar equipamentos que a plataforma permite",
+            "Gerenciar as categorias, preço e quantidade mínima de fotos por categoria",
+        ],
+        images: [
+            "assets/img/portfolio/003/Screenshot_0.png", "assets/img/portfolio/003/Screenshot_1.png", 
+            "assets/img/portfolio/003/Screenshot_2.png", "assets/img/portfolio/003/Screenshot_3.png", 
+            "assets/img/portfolio/003/Screenshot_4.png", "assets/img/portfolio/003/Screenshot_5.png", 
+            "assets/img/portfolio/003/Screenshot_6.png", "assets/img/portfolio/003/Screenshot_7.png",
+            "assets/img/portfolio/003/Screenshot_8.png", "assets/img/portfolio/003/Screenshot_9.png",
+        ],
+        tags: ["React", "Redux", "Firebase"],
+        filterType: 'web',
     },
 ];
 
@@ -59,7 +80,7 @@ function buildPortfolioList() {
 
     portfolio.forEach((item) => {
         const container = document.createElement('div');
-        container.setAttribute('class', 'col-lg-4 col-md-6 portfolio-item filter-app');
+        container.setAttribute('class', `col-lg-4 col-md-6 portfolio-item filter-${item.filterType}`);
         
         const content = document.createElement('div');
         content.setAttribute('class', 'portfolio-wrap');
@@ -154,7 +175,12 @@ function buildPortfolioPage() {
             for(let i = 0; i < project.images.length; i++) {
                 const newImage = document.createElement("img");
                 newImage.setAttribute("src", project.images[i]);
-                newImage.setAttribute("class", "screenshot-template");
+
+                let screenshotTemplateStyle = 'screenshot-template'
+                if(project.filterType === 'web') {
+                    screenshotTemplateStyle = 'screenshot-template-web';
+                }
+                newImage.setAttribute("class", screenshotTemplateStyle);
                 projectImageList.appendChild(newImage);
             }
         }
