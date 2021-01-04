@@ -108,6 +108,42 @@ const portfolio = [
     },
 ];
 
+async function sendForm(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('contact-name').value;
+    const email = document.getElementById('contact-email').value;
+    const subject = document.getElementById('contact-subject').value;
+    const message = document.getElementById('contact-message').value;
+
+    const templateParams = {
+        from_name: name,
+        reply_to: email,
+        subject: subject,
+        message: message,
+    };
+
+    const parameters = {
+        "user_id": "user_WKYCPkkYVOm0cRZJCqPhG",
+        "service_id": "service_9r8lkrj",
+        "template_id": "template_qrsr57l",
+        "template_params": templateParams,
+    }
+
+    const rawResponse = await sendEmail(parameters);
+    return false;
+}
+
+async function sendEmail(parameters) {
+    fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(parameters)
+    });
+}
+
 function initializeMainPage() {
     setCurrentAge();
     buildPortfolioList();

@@ -490,28 +490,28 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form role="form" id="contact-form">
-              <input type="hidden" name="contact_number">
+            <form onsubmit="return sendForm(event)" class="contact-form">
+              <input type="hidden" name="contact_number" value="teste">
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="name">Seu nome</label>
-                  <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <input type="text" name="name" class="form-control" id="contact-name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                   <div class="validate"></div>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="name">Seu email</label>
-                  <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
+                  <input type="email" class="form-control" name="email" id="contact-email" data-rule="email" data-msg="Please enter a valid email" />
                   <div class="validate"></div>
                 </div>
               </div>
               <div class="form-group">
                 <label for="name">Assunto</label>
-                <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <input type="text" class="form-control" name="subject" id="contact-subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
                 <div class="validate"></div>
               </div>
               <div class="form-group">
                 <label for="name">Mensagem</label>
-                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
+                <textarea class="form-control" name="message" id="contact-message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
                 <div class="validate"></div>
               </div>
               <div class="mb-3">
@@ -564,14 +564,6 @@
   <script src="assets/js/main.js"></script>
 
   <script src="assets/js/script.js"></script>
-
-  <!-- Send email config -->
-  <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-  <script type="text/javascript">
-    (function() {
-    emailjs.init("user_WKYCPkkYVOm0cRZJCqPhG");
-    })();
-  </script>
 
 </body>
 
