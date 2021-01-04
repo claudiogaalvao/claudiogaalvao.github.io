@@ -35,7 +35,7 @@
   ======================================================== -->
 </head>
 
-<body onload="buildPortfolioList()">
+<body onload="initializeMainPage()">
 
   <!-- ======= Mobile nav toggle button ======= -->
   <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
@@ -56,13 +56,14 @@
         </div>
       </div>
 
+      <!-- Ícones disponiveis em: https://iconify.design/icon-sets/bx/ -->
       <nav class="nav-menu">
         <ul>
           <li class="active"><a href="index.html"><i class="bx bx-home"></i> <span>Home</span></a></li>
           <li><a href="#about"><i class="bx bx-user"></i> <span>Sobre</span></a></li>
           <li><a href="#resume"><i class="bx bx-file-blank"></i> <span>Currículo</span></a></li>
           <li><a href="#portfolio"><i class="bx bx-book-content"></i> Portfolio</a></li>
-          <!-- <li><a href="#services"><i class="bx bx-server"></i> Serviços</a></li> -->
+          <li><a href="#testimonials"><i class="bx bx-chat"></i> Recomendações</a></li>
           <li><a href="#contact"><i class="bx bx-envelope"></i> Contato</a></li>
 
         </ul>
@@ -107,7 +108,7 @@
                   <li><i class="icofont-rounded-right"></i> <strong>Aniversário:</strong> 10 Nov 1996</li>
                   <li><i class="icofont-rounded-right"></i> <strong>Phone:</strong> (19) 99989-8546</li>
                   <li><i class="icofont-rounded-right"></i> <strong>Cidade:</strong> São Paulo, Brasil</li>
-                  <li><i class="icofont-rounded-right"></i> <strong>Idade:</strong> 23</li>
+                  <li id="currentAge"><i class="icofont-rounded-right"></i> <strong>Idade:</strong> </li>
                 </ul>
               </div>
               <div class="col-lg-6">
@@ -191,23 +192,23 @@
           <div class="col-lg-6" data-aos="fade-up">
 
             <div class="progress">
-              <span class="skill">HTML <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">CSS <i class="val">90%</i></span>
+              <span class="skill">HTML <i class="val">90%</i></span>
               <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
 
             <div class="progress">
-              <span class="skill">JavaScript <i class="val">90%</i></span>
+              <span class="skill">CSS <i class="val">80%</i></span>
               <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">JavaScript <i class="val">80%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
 
@@ -216,16 +217,16 @@
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
 
             <div class="progress">
-              <span class="skill">Android<i class="val">90%</i></span>
+              <span class="skill">Android<i class="val">80%</i></span>
               <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
 
             <div class="progress">
-              <span class="skill">React Native<i class="val">90%</i></span>
+              <span class="skill">React Native<i class="val">70%</i></span>
               <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
 
@@ -314,7 +315,7 @@
 
         <div class="section-title">
           <h2>Portfolio</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>Aqui estão alguns dos projetos que desenvolvi, sendo <span>02</span> aplicativos desenvolvidos de forma nativa para <span>Android</span> (um com <span>Kotlin</span> e outro com <span>Java</span>) e <span>02</span> utilizando  <span>React Native</span>. Também encontrará <span>01</span> site desenvolvido com <span>React</span>. Já trabalhei em outros projetos como  <span>Progressive Web Apps (PWA)</span>, <span>Xamarin</span>, <span>Swift</span>, entre outros n projetos em React, React Native, Kotlin e Java, que não estão listados aqui por fazerem parte de projetos da consultoria para qual trabalho ou por estarem em progresso.</p>
         </div>
 
         <div class="row" data-aos="fade-up">
@@ -387,7 +388,7 @@
 
         <div class="section-title">
           <h2>Recomendações</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>O feedback sem dúvida é um elemento importante para o progresso em nossas carreiras, e quando são positivos nos faz ter um sentimento de realização, dever cumprido e nos estimulam para continuar sempre dando o nosso melhor.</p>
         </div>
 
         <div class="owl-carousel testimonials-carousel">
@@ -458,7 +459,7 @@
 
         <div class="section-title">
           <h2>Contato</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>Se interessou pelo meu trabalho? Fique a vontade para enviar um e-mail ou entrar em contato através do telefone abaixo.</p>
         </div>
 
         <div class="row" data-aos="fade-in">
@@ -489,7 +490,8 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form role="form" id="contact-form">
+              <input type="hidden" name="contact_number">
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="name">Seu nome</label>
@@ -539,7 +541,7 @@
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by <a href="https://bootstrapmade.com/" target="_blank">BootstrapMade</a>
       </div>
     </div>
   </footer><!-- End  Footer -->
@@ -550,7 +552,6 @@
   <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
   <script src="assets/vendor/counterup/counterup.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
@@ -563,6 +564,14 @@
   <script src="assets/js/main.js"></script>
 
   <script src="assets/js/script.js"></script>
+
+  <!-- Send email config -->
+  <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+    emailjs.init("user_WKYCPkkYVOm0cRZJCqPhG");
+    })();
+  </script>
 
 </body>
 

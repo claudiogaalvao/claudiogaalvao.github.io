@@ -108,6 +108,39 @@ const portfolio = [
     },
 ];
 
+function initializeMainPage() {
+    setCurrentAge();
+    buildPortfolioList();
+}
+
+window.onload = function() {
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // generate a five digit number for the contact_number variable
+        this.contact_number.value = Math.random() * 100000 | 0;
+        // these IDs from the previous steps
+        emailjs.sendForm('service_9r8lkrj', 'contact_form', this)
+            .then(function() {
+                console.log('SUCCESS!');
+            }, function(error) {
+                console.log('FAILED...', error);
+            });
+    });
+}
+
+function setCurrentAge() {
+    const ageElement = document.getElementById('currentAge');
+    const currentAge = document.createTextNode(calculateAge());
+    ageElement.appendChild(currentAge);
+}
+
+function calculateAge() { // birthday is a date
+    const birthday = new Date(1996, 11, 10);
+    var ageDifMs = Date.now() - birthday;
+    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
+
 function buildPortfolioList() {
     const porfolioList = document.getElementById('portfolio-list');
 
