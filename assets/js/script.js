@@ -108,41 +108,153 @@ const portfolio = [
     },
 ];
 
-async function sendForm(event) {
-    event.preventDefault();
+!(function($) {
+    "use strict";
 
-    const name = document.getElementById('contact-name').value;
-    const email = document.getElementById('contact-email').value;
-    const subject = document.getElementById('contact-subject').value;
-    const message = document.getElementById('contact-message').value;
+    $('form.contact-form').submit(function(e) {
+        e.preventDefault();
+        
+        var templateParams = {
+            from_name: '',
+            reply_to: '',
+            subject: '',
+            message: '',
+        };
 
-    const templateParams = {
-        from_name: name,
-        reply_to: email,
-        subject: subject,
-        message: message,
-    };
+        var f = $(this).find('.form-group'),
+            ferror = false,
+            emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
 
-    const parameters = {
-        "user_id": "user_WKYCPkkYVOm0cRZJCqPhG",
-        "service_id": "service_9r8lkrj",
-        "template_id": "template_qrsr57l",
-        "template_params": templateParams,
+        f.children('input').each(function() { // run all inputs
+    
+            var i = $(this); // current input
+            var rule = i.attr('data-rule');
+            templateParams[i.attr('data-template')] = i.val();
+            
+            if (rule !== undefined) {
+                var ierror = false; // error flag for current input
+                var pos = rule.indexOf(':', 0);
+                if (pos >= 0) {
+                    var exp = rule.substr(pos + 1, rule.length);
+                    rule = rule.substr(0, pos);
+                } else {
+                    rule = rule.substr(pos + 1, rule.length);
+                }
+        
+                switch (rule) {
+                case 'required':
+                    if (i.val() === '') {
+                    ferror = ierror = true;
+                    }
+                    break;
+        
+                case 'minlen':
+                    if (i.val().length < parseInt(exp)) {
+                    ferror = ierror = true;
+                    }
+                    break;
+        
+                case 'email':
+                    if (!emailExp.test(i.val())) {
+                    ferror = ierror = true;
+                    }
+                    break;
+        
+                case 'checked':
+                    if (! i.is(':checked')) {
+                    ferror = ierror = true;
+                    }
+                    break;
+        
+                case 'regexp':
+                    exp = new RegExp(exp);
+                    if (!exp.test(i.val())) {
+                    ferror = ierror = true;
+                    }
+                    break;
+                }
+                i.next('.validate').html((ierror ? (i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
+            }
+        });
+        f.children('textarea').each(function() { // run all inputs
+
+            var i = $(this); // current input
+            var rule = i.attr('data-rule');
+            templateParams[i.attr('data-template')] = i.val();
+            
+            if (rule !== undefined) {
+              var ierror = false; // error flag for current input
+              var pos = rule.indexOf(':', 0);
+              if (pos >= 0) {
+                var exp = rule.substr(pos + 1, rule.length);
+                rule = rule.substr(0, pos);
+              } else {
+                rule = rule.substr(pos + 1, rule.length);
+              }
+      
+              switch (rule) {
+                case 'required':
+                  if (i.val() === '') {
+                    ferror = ierror = true;
+                  }
+                  break;
+      
+                case 'minlen':
+                  if (i.val().length < parseInt(exp)) {
+                    ferror = ierror = true;
+                  }
+                  break;
+              }
+              i.next('.validate').html((ierror ? (i.attr('data-msg') != undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
+            }
+        });
+        if (ferror) return false;
+
+        var this_form = $(this);
+        
+        this_form.find('.sent-message').slideUp();
+        this_form.find('.error-message').slideUp();
+        this_form.find('.loading').slideDown();
+
+        sendEmail(this_form, templateParams);
+
+        return true;
+    });
+
+    function sendEmail (this_form, templateParams) {
+        const parameters = {
+            "user_id": "user_WKYCPkkYVOm0cRZJCqPhG",
+            "service_id": "service_9r8lkrj",
+            "template_id": "template_qrsr57l",
+            "template_params": templateParams,
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: 'https://api.emailjs.com/api/v1.0/email/send',
+            data: JSON.stringify(parameters),
+            contentType: "application/json",
+            dataType: 'json',
+            timeout: 6000
+        })
+        .always(function(res) {
+            console.log(res);
+            console.log(res.status);
+            if(res.status === 200) {
+                this_form.find('.loading').slideUp();
+                this_form.find('.sent-message').slideDown();
+                this_form.find("input:not(input[type=submit]), textarea").val('');
+            } else {
+                this_form.find('.loading').slideUp();
+                if(!msg) {
+                    msg = 'Submissão do formulário falhou';
+                }
+                this_form.find('.error-message').slideDown().html(msg);
+            }
+        });
     }
 
-    const rawResponse = await sendEmail(parameters);
-    return false;
-}
-
-async function sendEmail(parameters) {
-    fetch('https://api.emailjs.com/api/v1.0/email/send', {
-        method: 'POST',
-        headers: {
-        'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(parameters)
-    });
-}
+})(jQuery);
 
 function initializeMainPage() {
     setCurrentAge();
