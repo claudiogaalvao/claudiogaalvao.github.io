@@ -258,6 +258,7 @@ const portfolio = [
 
 function initializeMainPage() {
     setCurrentAge();
+    setMobileExperienceTime();
     buildPortfolioList();
 }
 
@@ -265,6 +266,25 @@ function setCurrentAge() {
     const ageElement = document.getElementById('currentAge');
     const currentAge = document.createTextNode(calculateAge());
     ageElement.appendChild(currentAge);
+}
+
+function setMobileExperienceTime() {
+    const startDate = new Date(2020, 3, 16);
+    const today = new Date();
+    const diffMonths = today.getMonth() - startDate.getMonth() + (12 * (today.getFullYear() - startDate.getFullYear()));
+    var textMobileExperienceTime = '';
+    if(diffMonths > 12) {
+        const years = parseInt(diffMonths / 12);
+        const months = diffMonths % 12;
+        const yearsText = years > 1 ? `${years} anos` : '1 ano';
+        const monthsText = months > 1 ? `${months} meses` : '1 mês';
+
+        textMobileExperienceTime = `${yearsText} e ${monthsText}`;
+    } else {
+        textMobileExperienceTime = `${diffMonths} meses`;
+    }
+
+    document.getElementById('mobileExperienceTime').innerText = textMobileExperienceTime;
 }
 
 function calculateAge() { // birthday is a date
