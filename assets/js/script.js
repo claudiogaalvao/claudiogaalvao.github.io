@@ -390,6 +390,7 @@ function buildPortfolioPage() {
         
             const projectTitle = document.getElementById("projectTitle");
             projectTitle.innerHTML = project.title;
+            document.title = project.title;
         
             const projectDescription = document.getElementById("projectDescription");
             for(let i = 0; i < project.description.length; i++) {
