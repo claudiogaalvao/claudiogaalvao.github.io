@@ -9,8 +9,11 @@ const portfolio = [
         id: '001',
         title: "PicMe Usuário",
         description: [
-            "O PicMe Usuário foi um aplicativo desenvolvido em grupo (composto por quatro integrantes) para o Trabalho de Conclusão de Curso (TCC) no ano de 2019 do curso de Sistemas de Informação pela PUC-Campinas. O desenvolvimento durou 1 ano letivo, onde decidimos utilizar tecnologias em alta no mercado na época, como o React Native e o Firebase.",
-            "A ideia do aplicativo consiste em dois aplicativos que se complementam no processo. Este em questão, é o aplicativo do usuário, que pode encontrar fotógrafos online próximos a ele dentro de um raio pré-definido, e então solicitar o serviço que deverá ocorrer nos próximos minutos. A proposta aqui é que o aplicativo seja utilizado em locais turísticos, onde os fotógrafos se posicionariam estratégicamente para atender as solicitações."
+            `O PicMe Usuário é um aplicativo que foi desenvolvido em grupo (composto por quatro integrantes) para o Trabalho de Conclusão de Curso (TCC) no ano de 2019 do curso de 
+            Sistemas de Informação pela PUC-Campinas. O desenvolvimento durou 1 ano letivo, onde decidimos utilizar tecnologias em alta no mercado, como o React Native e o Firebase.`,
+            `A ideia do aplicativo consiste em dois aplicativos que se complementam no processo. Este em questão, é o aplicativo do usuário, que pode encontrar fotógrafos online 
+            próximos a ele dentro de um raio pré-definido, e então solicitar o serviço que deverá ocorrer nos próximos minutos. A proposta aqui é que o aplicativo seja utilizado 
+            em locais turísticos, onde os fotógrafos se posicionariam estratégicamente para atender as solicitações.`
         ],
         features: [
             "Utilização de localização via GPS para promover o encontro de cliente e fotógrafos",
@@ -32,7 +35,14 @@ const portfolio = [
     {
         id: '002',
         title: "PicMe Fotógrafo",
-        description: ['Alguma descrição aqui...'],
+        description: [
+            `O PicMe Fotógrafo é um aplicativo que foi desenvolvido em grupo (composto por quatro integrantes) para o Trabalho de Conclusão de Curso (TCC) no ano de 2019 do curso de 
+            Sistemas de Informação pela PUC-Campinas. O desenvolvimento durou 1 ano letivo, onde decidimos utilizar tecnologias em alta no mercado, como o React Native e o Firebase.`,
+            `Este é um aplicativo complementar a outro disponível no portfólio, o PicMe Usuário. O PicMe Fotógrafo tem como objetivo permitir que o fotógrafo fique online para 
+            atender às solicitações dos usuários e, após realizar o serviço, deverá enviar as fotos da sessão para então receber o valor do serviço. Além disso, ele pode também 
+            realizar uma série de outras interações no app como gerenciar fotos do portfólio no seu perfil, gerenciar equipamentos que usará na prestação dos serviços e 
+            visualizar histórico de sessões realizadas.`
+        ],
         features: [
             "Utilização de localização via GPS para promover o encontro de clientes e fotógrafo",
             "Gerenciar fotos do perfil para portfólio",
@@ -57,7 +67,14 @@ const portfolio = [
     {
         id: '003',
         title: "PicMe Admin",
-        description: ['Alguma descrição aqui...'],
+        description: [
+            `Assim como o PicMe Fotógrafo e o PicMe Usuário, o PicMe Admin foi um aplicativo desenvolvido para complementá-los, desenvolvido em grupo 
+            (composto por quatro integrantes) para o Trabalho de Conclusão de Curso (TCC) no ano de 2019 do curso de Sistemas de Informação pela PUC-Campinas.`,
+            `O objetivo desta aplicação web desenvolvida em React e integrada ao Firebase, é servir como um administrador da plataforma, que irá analisar o cadastro de novos 
+            fotógrafos, verificando os dados enviados juntamente com a foto do documento que é enviada. Somente com a aprovação do admin, o fotógrafo poderá utilizar a plataforma. 
+            O admin pode também gerenciar os equipamentos que a plataforma aceita, além de gerenciar as categorias em que os fotógrafos podem se encaixar para realizar os 
+            atendimentos, definindo quantidade mínima de fotos por sessão e o preço por foto.`
+        ],
         features: [
             "Aprovar/Reprovar novos cadastros de fotógrafos na plataforma",
             "Gerenciar equipamentos que a plataforma permite",
@@ -76,7 +93,10 @@ const portfolio = [
     {
         id: '004',
         title: "App Agência de Viagens",
-        description: ['Alguma descrição aqui...'],
+        description: [
+            `O App Agência de Viagens é um aplicativo que foi desenvolvido de forma nativa para Android com Java, afim de aplicar o uso de RecyclerView que traz 
+            um enorme ganho de performance para as aplicações Android e veio para substituir views menos performáticas como o ListView e o GridView.`
+        ],
         features: [
             "Listagem de destinos disponíveis",
             "Visualizar detalhes do destino",
@@ -86,13 +106,16 @@ const portfolio = [
             "assets/img/portfolio/004/1609600393522.png", "assets/img/portfolio/004/1609600398695.png", 
             "assets/img/portfolio/004/1609600404230.png", "assets/img/portfolio/004/1609600408609.png",
         ],
-        tags: ["Android", "Java", "RecyclerView"],
+        tags: ["Android", "Java"],
         filterType: 'app',
     },
     {
         id: '005',
         title: "Gerenciador de Finanças",
-        description: ['Alguma descrição aqui...'],
+        description: [
+            `O App Gerenciador de Finanças é um aplicativo que foi desenvolvido de forma nativa para Android com Kotlin. Nele é possível realizar um controle financeiro 
+            separando as receitas e despesas por categoria, de forma a acompanhar o saldo conforme atualiza o app com as transações realizadas.`
+        ],
         features: [
             "Visualizar histórico de receitas, despesas e saldo atual",
             "Adicionar uma nova receita",
