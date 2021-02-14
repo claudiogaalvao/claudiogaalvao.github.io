@@ -282,7 +282,6 @@ const portfolio = [
 function initializeMainPage() {
     console.log('iniciado');
     setCurrentAge();
-    // setMobileExperienceTime();
     buildPortfolioList();
 }
 
@@ -322,7 +321,6 @@ function buildPortfolioList() {
     const portfolioList = document.getElementById('portfolio-list');
 
     portfolio.forEach((item) => {
-        console.log(item);
         const container = document.createElement('div');
         container.setAttribute('class', `col-lg-4 col-md-6 portfolio-item filter-${item.filterType}`);
         
