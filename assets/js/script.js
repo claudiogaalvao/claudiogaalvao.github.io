@@ -280,8 +280,9 @@ const portfolio = [
 })(jQuery);
 
 function initializeMainPage() {
+    console.log('iniciado');
     setCurrentAge();
-    setMobileExperienceTime();
+    // setMobileExperienceTime();
     buildPortfolioList();
 }
 
@@ -318,9 +319,10 @@ function calculateAge() { // birthday is a date
 }
 
 function buildPortfolioList() {
-    const porfolioList = document.getElementById('portfolio-list');
+    const portfolioList = document.getElementById('portfolio-list');
 
     portfolio.forEach((item) => {
+        console.log(item);
         const container = document.createElement('div');
         container.setAttribute('class', `col-lg-4 col-md-6 portfolio-item filter-${item.filterType}`);
         
@@ -362,7 +364,7 @@ function buildPortfolioList() {
 
         container.appendChild(content);
 
-        porfolioList.appendChild(container);      
+        portfolioList.appendChild(container);      
     });
 
 }
