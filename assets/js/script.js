@@ -280,7 +280,6 @@ const portfolio = [
 })(jQuery);
 
 function initializeMainPage() {
-    console.log('iniciado');
     setCurrentAge();
     buildPortfolioList();
 }
